@@ -47,3 +47,4 @@
       </slaveInfos>
     </org.jenkinsci.plugins.mesos.MesosCloud>
   </clouds>
+
