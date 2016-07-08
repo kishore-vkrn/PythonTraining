@@ -34,7 +34,7 @@
   <label></label>
   <nodeProperties/>
   <globalNodeProperties/>
-<clouds>
+  <clouds>
       <org.jenkinsci.plugins.mesos.MesosCloud plugin="mesos@0.12.0">
       <name>MesosCloud</name>
       <nativeLibraryPath>/usr/lib</nativeLibraryPath>

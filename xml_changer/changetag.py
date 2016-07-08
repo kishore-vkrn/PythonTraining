@@ -1,13 +1,9 @@
 import sys
-
 import xml.etree.ElementTree as ET
 import config
 
 tree = ET.parse('cloud.xml')
 root = tree.getroot()
-
-print root.tag
-print config.nativeLibraryPath
 
 # Cloud Settings
 # nativeLibraryPath
@@ -92,7 +88,7 @@ for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):
 	for k in f.iterfind('slaveInfos'):
 		for j in k.iterfind('org.jenkinsci.plugins.mesos.MesosSlaveInfo'):
 			for i in j.iterfind('executorMem'):
-				i.text = 'executorMem'
+				i.text = config.executorMem
 				print 'found executorMem changing to ',i.text
 
 # remoteFSRoot
@@ -124,8 +120,8 @@ for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):
 	for k in f.iterfind('slaveInfos'):
 		for j in k.iterfind('org.jenkinsci.plugins.mesos.MesosSlaveInfo'):
 			for i in j.iterfind('jnlpArgs'):
-				i.text = config.jvmArgs
-				print 'found jvmArgs changing to ',i.text
+				i.text = config.jnlpArgs
+				print 'found jnlpArgs changing to ',i.text
 
 # defaultSlave
 for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):
@@ -193,15 +189,6 @@ for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):
 				for l in i.iterfind('type'):
 					i.text = config.networking
 					print 'found networking changing to ',i.text
-
-# useCustomDockerCommandShell
-for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):
-	for k in f.iterfind('slaveInfos'):
-		for j in k.iterfind('org.jenkinsci.plugins.mesos.MesosSlaveInfo'):
-			for i in j.iterfind('containerInfo'):
-				for l in i.iterfind('type'):
-					i.text = config.useCustomDockerCommandShell
-					print 'found useCustomDockerCommandShell changing to ',i.text
 
 # dockerPrivilegedMode
 for f in root.findall('org.jenkinsci.plugins.mesos.MesosCloud'):

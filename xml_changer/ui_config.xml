@@ -1,13 +1,13 @@
-<clouds>
+  <clouds>
     <org.jenkinsci.plugins.mesos.MesosCloud plugin="mesos@0.12.0">
       <name>MesosCloud</name>
       <nativeLibraryPath>/usr/lib/libmesos.so</nativeLibraryPath>
       <master>172.16.0.224:5050</master>
-      <description />
+      <description></description>
       <frameworkName>Jenkins Scheduler</frameworkName>
       <role>*</role>
-      <slavesUser />
-      <credentialsId />
+      <slavesUser></slavesUser>
+      <credentialsId></credentialsId>
       <checkpoint>true</checkpoint>
       <onDemandRegistration>false</onDemandRegistration>
       <jenkinsURL>http://ec2-107-21-71-174.compute-1.amazonaws.com:8080</jenkinsURL>
@@ -24,7 +24,8 @@
           <jvmArgs>-Xms16m -XX:+UseConcMarkSweepGC -Djava.net.preferIPv4Stack=true</jvmArgs>
           <jnlpArgs>-noReconnect</jnlpArgs>
           <defaultSlave>false</defaultSlave>
-          <containerInfo>false<type>DOCKER</type>
+          <containerInfo>
+            <type>DOCKER</type>
             <dockerImage>slave</dockerImage>
             <volumes>
               <org.jenkinsci.plugins.mesos.MesosSlaveInfo_-Volume>
@@ -34,14 +35,14 @@
               </org.jenkinsci.plugins.mesos.MesosSlaveInfo_-Volume>
             </volumes>
             <networking>HOST</networking>
-            <portMappings class="empty-list" />
+            <portMappings class="empty-list"/>
             <useCustomDockerCommandShell>false</useCustomDockerCommandShell>
-            <customDockerCommandShell />
+            <customDockerCommandShell></customDockerCommandShell>
             <dockerPrivilegedMode>true</dockerPrivilegedMode>
             <dockerForcePullImage>false</dockerForcePullImage>
           </containerInfo>
           <mode>NORMAL</mode>
-          <nodeProperties />
+          <nodeProperties/>
           <labelString>mesos</labelString>
         </org.jenkinsci.plugins.mesos.MesosSlaveInfo>
       </slaveInfos>
