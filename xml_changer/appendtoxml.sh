@@ -1,5 +1,6 @@
-#!/bin/bashi
+#!/bin/bash
 JENKINS_HOME=/root/.jenkins/
+python $JENKINS_HOME/init.groovy.d/changetag.py
 A=$( (sed -n '$=' $JENKINS_HOME/config.xml) | awk '{print $1}' )
 lin=`expr $A - 1`
 echo 'adding cloud.xml at line to config.xml' $lin
