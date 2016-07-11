@@ -1,0 +1,50 @@
+<clouds>
+    <org.jenkinsci.plugins.mesos.MesosCloud plugin="mesos@0.12.0">
+      <name>MesosCloud</name>
+      <nativeLibraryPath>/usr/lib/libmesos.so</nativeLibraryPath>
+      <master>172.16.0.224:5050-123</master>
+      <description />
+      <frameworkName>Jenkins Scheduler</frameworkName>
+      <role>*</role>
+      <slavesUser />
+      <credentialsId />
+      <checkpoint>true</checkpoint>
+      <onDemandRegistration>false</onDemandRegistration>
+      <jenkinsURL>http://ec2-107-21-71-174.compute-1.amazonaws.com:8080</jenkinsURL>
+      <declineOfferDuration>6000</declineOfferDuration>
+      <slaveInfos>
+        <org.jenkinsci.plugins.mesos.MesosSlaveInfo>
+          <slaveCpus>0.1</slaveCpus>
+          <slaveMem>654</slaveMem>
+          <executorCpus>0.2</executorCpus>
+          <maxExecutors>1</maxExecutors>
+          <executorMem>654</executorMem>
+          <remoteFSRoot>jenkins</remoteFSRoot>
+          <idleTerminationMinutes>1</idleTerminationMinutes>
+          <jvmArgs>-Xms16m -XX:+UseConcMarkSweepGC -Djava.net.preferIPv4Stack=true</jvmArgs>
+          <jnlpArgs>-noReconnect</jnlpArgs>
+          <defaultSlave>false</defaultSlave>
+          <containerInfo>false<type>DOCKER</type>
+            <dockerImage>slave</dockerImage>
+            <volumes>
+              <org.jenkinsci.plugins.mesos.MesosSlaveInfo_-Volume>
+                <containerPath>./m2</containerPath>
+                <hostPath>./m2</hostPath>
+                <readOnly>false</readOnly>
+              </org.jenkinsci.plugins.mesos.MesosSlaveInfo_-Volume>
+            </volumes>
+            <networking>HOST</networking>
+            <portMappings class="empty-list" />
+            <useCustomDockerCommandShell>false</useCustomDockerCommandShell>
+            <customDockerCommandShell />
+            <dockerPrivilegedMode>true</dockerPrivilegedMode>
+            <dockerForcePullImage>false</dockerForcePullImage>
+          </containerInfo>
+          <mode>NORMAL</mode>
+          <nodeProperties />
+          <labelString>mesos</labelString>
+        </org.jenkinsci.plugins.mesos.MesosSlaveInfo>
+      </slaveInfos>
+    </org.jenkinsci.plugins.mesos.MesosCloud>
+  </clouds>
+<!-- Modified Cloud -->
